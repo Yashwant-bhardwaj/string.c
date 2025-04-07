@@ -74,30 +74,40 @@ int main()
 
 
 // code 4 implemetation of the code strcat 
-#include<stdio.h>
-void strcat(char *destination,char *source);// forward decleration of he code strcat
-void strcat(char *destination,char *source)
+#include <stdio.h>
+
+// Forward declaration
+void mystrcat(char *destination, char *source);
+
+void mystrcat(char *destination, char *source)
 {
-    while(*destination!='/0')
+    // Move destination pointer to the end of the string
+    while (*destination != '\0')
     {
         destination++;
-       while(*source!='/0')
-       {
-          destination=*s;
-          source++;
-          destination++;
-       }
-       *destination='/0';
-       printf("%s",destination);
-
     }
+
+    // Now copy source to the end of destination
+    while (*source != '\0')
+    {
+        *destination = *source;
+        source++;
+        destination++;
+    }
+
+    *destination = '\0'; // Null-terminate the final string
+
+    // Optional: print the final result
+   // printf("Concatenated string: %s\n", destination); // <-- This won't work now (read below)
 }
-int main(){
-    char destination[100]="yashwant";
-    char source[100]="kumar";
-    strcat(destination,source);
-    
+int main()
+{
+    char destination[]="yashwant";
+    char source[]="bhardwaj";
+    mystrcat(destination,source);
+     printf(" %s\n", destination); 
 }
+
 
 
 
